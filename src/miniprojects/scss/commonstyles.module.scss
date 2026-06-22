@@ -1,0 +1,530 @@
+.cardflex {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 16px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: auto !important;
+    min-width: none !important;
+    max-width: none !important;
+    margin: 0px !important;
+
+
+    .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        div {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .chip {
+            width: fit-content;
+            border: 1px solid blue;
+            padding: 2px 6px;
+            color: blue;
+            line-height: normal;
+            border-radius: 12px;
+            font-size: 13px;
+        }
+    }
+
+    .content {
+        border-bottom: 1px solid #d2d3d4;
+        font-size: 13px;
+        padding-bottom: 20px;
+
+        span {
+            font-size: 41px;
+            line-height: normal;
+            font-weight: 600;
+        }
+    }
+
+    .bottom {
+        .dotsflex {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+
+            .dot {
+                width: 14px;
+                height: 14px;
+                border-radius: 50%;
+                border: 1px solid #d2d3d4;
+
+                &.filled {
+                    background-color: blue;
+                }
+            }
+        }
+    }
+}
+
+.tasklistcard {
+    width: 500px;
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .top {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 12px;
+
+        .title {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .inputwithadd {
+            display: flex;
+            gap: 12px;
+
+            input {
+                width: 100%;
+                border-radius: 6px;
+                border: 1px solid #d2d3d4;
+                padding-left: 12px;
+            }
+        }
+    }
+
+    .filters {
+        display: flex;
+        gap: 12px;
+
+        .filter {
+            background-color: #d2d3d461;
+            border: 1px solid grey;
+            padding: 2px 8px;
+            border-radius: 12px;
+            line-height: normal;
+            font-size: 14px;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+        }
+    }
+
+    .center {
+        .row {
+            display: flex;
+            gap: 12px;
+            justify-content: space-between;
+            margin-bottom: 12px;
+
+            label {
+                width: 100%;
+                cursor: pointer;
+                width: 100%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                cursor: pointer;
+            }
+
+            button {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.moodcard {
+    max-width: 40%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .top {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        div {
+            font-weight: 600;
+
+        }
+
+        span {
+            color: rgb(137, 127, 127);
+        }
+    }
+
+    .center {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .btnflex {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            align-items: center;
+
+            .moodbtn {
+                width: 50px;
+                display: grid;
+                place-items: center;
+                height: 50px;
+                border-radius: 12px;
+                background-color: transparent;
+                border: 1px solid #d2d3d4;
+                text-transform: capitalize;
+
+                &.active {
+                    background-color: #f6f2fa;
+                    color: #7640c2;
+                }
+
+                text-align: center;
+                padding: 6px;
+                cursor: pointer;
+            }
+        }
+
+        .abtmoodtxt {
+            border-radius: 12px;
+            background-color: #f6f2fa;
+            color: #7640c2;
+            padding: 12px;
+            max-width: 75%;
+            margin: auto;
+            text-align: center;
+            min-width: 180px;
+        }
+    }
+
+    .bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        span {
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        button {
+            background-color: transparent;
+            border: 1px solid #d2d3d4;
+            border-radius: 12px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+    }
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+.focuscard {
+    margin: 0 auto;
+    max-width: 500px;
+    text-align: center;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+
+    .btnrow {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+    }
+
+    .circle {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        border: 4px solid blue;
+        margin: auto;
+        display: grid;
+        place-items: center;
+
+    }
+
+    .circularstsrow {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        justify-content: center;
+
+        .circulardotsdiv {
+            display: flex;
+            gap: 8px;
+
+            .dot {
+                width: 14px;
+                height: 14px;
+                border-radius: 50%;
+                border: 1px solid #d2d3d4;
+
+                &.filled {
+                    background-color: blue;
+                }
+            }
+        }
+
+    }
+}
+
+.dashboardbody {
+    .headerarea {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 16px;
+
+        .title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .today {
+            color: #575050;
+
+        }
+    }
+
+    .maingridblock {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin: 20px 0;
+        gap: 16px;
+        padding: 0 16px;
+
+        .box {
+            padding: 12px;
+            border: 1px solid #d2d3d4;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+
+            .val {
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+            .desc {
+                color: #575050;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.filters {
+    display: flex;
+    gap: 12px;
+
+    .filter {
+        background-color: #d2d3d461;
+        border: 1px solid grey;
+        padding: 2px 8px;
+        border-radius: 12px;
+        line-height: normal;
+        font-size: 14px;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+
+        &.filled {
+            background: blue;
+            color: #fff;
+        }
+    }
+}
+
+.qtcard {
+    width: 400px;
+    max-width: 400px;
+    margin:auto !important;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .title {
+            font-size: 14px;
+            font-weight: 600;
+        }
+    }
+
+    .body {
+            margin: 16px 0 0;
+            max-height: 600px;
+    overflow: auto;
+        .author {
+            font-size: 16px;
+            font-weight: 700;
+             display:inline-block;
+             margin:12px 0;
+        }
+    }
+
+}
+.skeletonwrapper{
+    width: 100%;
+}
+
+.skeletonline{
+    width: 100%;
+    height: 14px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    animation: shimmer 1.5s infinite;
+    background: linear-gradient(
+        90deg,
+        #e5e5e5 25%,
+        #f5f5f5 50%,
+        #e5e5e5 75%
+    );
+    background-size: 200% 100%;
+}
+
+.skeletonsmall{
+    width: 120px;
+    height: 12px;
+    border-radius: 6px;
+    margin-top: 18px;
+    animation: shimmer 1.5s infinite;
+    background: linear-gradient(
+        90deg,
+        #e5e5e5 25%,
+        #f5f5f5 50%,
+        #e5e5e5 75%
+    );
+    background-size: 200% 100%;
+}
+
+@keyframes shimmer{
+    0%{
+        background-position: 200% 0;
+    }
+
+    100%{
+        background-position: -200% 0;
+    }
+}
+.weathercard{
+    max-width:400px;
+    padding:20px;
+    color:#fff!important;
+        background: #0000ffcf;
+        margin:auto;
+    .top{
+        display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    .center{
+            display: flex;
+    padding: 14px 0;
+    gap: 12px;
+    .right{
+        display:flex;
+        flex-direction:column;
+    }
+    .bold{
+        font-size:20px;
+        font-weight:700;
+    }
+    }
+    .bottom{
+        display:grid;
+        gap:12px;
+        grid-template-columns:repeat(2,1fr)
+    }
+}
+.goalformcard{
+     max-width: 453px;
+    width: 455px;
+    padding: 20px;
+    margin: auto;
+    input{
+      width: -webkit-fill-available;
+    height: 24px;
+    border: 1px solid #d2d3d4;
+    border-radius: 6px;
+    padding-inline: 12px;
+    }
+    input[type="checkbox"] {
+   border: 2px solid blue;
+    width: auto;
+    padding: 0px;
+    height: auto;
+    margin: 0;
+}
+    button{
+            white-space: nowrap;
+    min-width: max-content !important;
+    }
+     .title{
+        font-size:16px;
+        font-weight:700;
+        padding-bottom:20px;
+    }
+    .addgoalblock{
+        padding:20px 0 0 0 ;
+            padding: 20px 0;
+    display: flex;
+    gap: 20px;
+    padding-bottom:0px;
+    }
+    .body{
+        padding-top: 16px;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+        max-height: 110px;
+    overflow: auto;
+        .items{
+            display: flex;
+    justify-content: space-between;
+            .checkboxblock{
+            display:flex;
+            gap:6px;
+            }
+            .rights{
+
+            }
+        }
+    }
+}
+.tripformcard{
+    padding:0px !important;
+        background: linear-gradient(180deg, #fff 50%, #f2f2f2);
+    .header{
+            padding: 20px !important;
+    background-color: violet;
+    border-radius: 12px 12px 0 0;
+    button{
+        background-color: #000 !important;
+        color: #fff !important;
+            box-shadow: rgba(149, 157, 165, 0.2) 9px 21px 36px;
+    }
+    }
+    .body{
+        overflow: hidden scroll !important;
+    }
+    .body,.footer{
+        padding: 16px;
+    }
+}

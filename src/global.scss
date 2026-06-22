@@ -1,0 +1,526 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    
+    font-family: "Inter", sans-serif;
+   background-color: #f2f2f3;
+}
+
+p,
+h4,
+h3,
+h1,
+li,
+ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+p {
+    font-size: 14px;
+
+}
+
+h4 {
+    font-size: 16px;
+
+}
+
+h3 {
+    font-size: 18px;
+
+}
+
+h1 {
+    font-size: 20px;
+
+}
+label{
+    font-size: 14px;
+}
+.formcontainer{
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    .formheading{
+        margin-bottom: 20px;
+    }
+   .formrow{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+    width: 100%;
+    input , textarea, select{
+        // width: 100%;
+        min-height: 32px;
+        border: 1px solid #d2d3d4;
+        border-radius: 6px;
+        padding: 0 8px;
+    }
+    label{
+        margin-bottom: 8px
+    }
+   }
+   .btncontainer{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    button{
+        min-height: 28px;
+        display: grid;
+        place-items: center;
+        padding: 8px 16px;
+        color: #fff;
+        background-color: #00b885;
+        border: 1px solid darkgreen;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+   }
+
+}
+.listcontainer{
+    padding: 20px;
+    display: flex;
+    gap:16px;
+    flex-direction: column;
+    .cardwrapper{
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    .listcard{
+        display: flex;
+        gap: 12px;
+        flex-direction: column;
+        padding: 20px;
+      
+        border-radius: 6px;
+        border: 1px solid #d2d3d4;
+        width: 455px;
+        cursor: pointer;
+    }
+}
+.filterbar{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.commoncard{
+    border: 1px solid #d2d3d4;
+    padding: 12px;
+    border-radius: 12px;
+    max-width: 230px;
+    margin: auto;
+margin: 16px;
+}
+
+.tabwrapper{
+    button{
+            background: #ffff;
+    border-radius: 6px;
+    border: 1px solid #d2d3d4;
+    padding: 6px 8px;
+    cursor: pointer;
+    }
+}
+.activetab{
+    background-color: #00b885 !important;
+}
+.blurimagecontainer{
+    background: url("../public/blurimageactivity.png");
+ 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100dvh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  .centered{
+    width: 300px;
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+    align-items: center;
+    .btnwithicon{
+        display: flex;
+        gap: 6px;
+        align-items: center;
+    }
+  }
+}
+// global scss for phoneinput
+.reactphoneinputcontainer{
+        border-radius: 22px;
+    background: #2C2C2E;
+    padding: 12px;
+    width: 100%;
+    .PhoneInputInput{
+        background: transparent !important;
+    border: none !important;
+    color: #fff !important;
+    
+        &:focus-visible{
+            outline: none !important;
+        }
+    
+    }
+}
+/* Target the container you want to scroll */
+.myScroll {
+  overflow-y: auto;
+}
+
+/* Make scrollbar thin */
+.myScroll::-webkit-scrollbar {
+  width: 4px;         /* Small width */
+}
+
+/* Background of scrollbar track */
+.myScroll::-webkit-scrollbar-track {
+  background: transparent;  /* No track visible */
+}
+
+/* Scrollbar thumb */
+.myScroll::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 10px;
+}
+
+/* Thumb when hovering */
+.myScroll::-webkit-scrollbar-thumb:hover {
+  background: #e6e6e6;
+}
+body {
+ 
+  font-family: system-ui, sans-serif;
+}
+
+// Variables
+$bg-dark: #000000;
+$active-tab: #ffffff;
+$text-inactive: #e0e0e0;
+$text-active: #000000;
+$tab-radius: 20px;
+
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: $bg-dark;
+  padding: 8px 16px;
+  height: 60px;
+  color: white;
+  font-family: 'Inter', sans-serif; // Standard UI font
+}
+
+.tabs {
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+  margin-left: 10px;
+
+  .tab {
+    position: relative;
+    padding: 10px 20px;
+    color: $text-inactive;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    white-space: nowrap;
+
+    .close {
+      font-size: 16px;
+      opacity: 0.7;
+    }
+
+    // The Active Tab Styling
+    &.active {
+      background-color: $active-tab;
+      color: $text-active;
+      border-radius: $tab-radius $tab-radius 0 0;
+      font-weight: 500;
+
+      // The Left Inverted Curve
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: -#{$tab-radius};
+        height: $tab-radius;
+        width: $tab-radius;
+        background-color: transparent;
+        border-bottom-right-radius: $tab-radius;
+        box-shadow: 10px 0 0 0 $active-tab; // This creates the "negative" fill
+      }
+
+      // The Right Inverted Curve
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: -#{$tab-radius};
+        height: $tab-radius;
+        width: $tab-radius;
+        background-color: transparent;
+        border-bottom-left-radius: $tab-radius;
+        box-shadow: -10px 0 0 0 $active-tab;
+      }
+    }
+  }
+}
+
+.nav-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .add-btn {
+    background: transparent;
+    border: 1px solid #333;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    
+    &:hover { background: #222; }
+  }
+
+  .profile {
+    width: 32px;
+    height: 32px;
+    background: #7b3fe4; // Purple from image
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 12px;
+  }
+}
+.range-wrapper {
+  position: relative;
+  width: 260px;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  background: #fff;
+}
+
+.arrow {
+  margin: 0 6px;
+}
+
+.close {
+  margin-left: 8px;
+  color: #999;
+}
+
+.calendar-box {
+  position: absolute;
+  top: 45px;
+  z-index: 10;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.actions button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+}
+
+.apply {
+  background: #000 !important;
+  color: #fff;
+  margin-left: 6px;
+}
+
+/* Remove unwanted previews */
+.rdrDayStartPreview,
+.rdrDayEndPreview,
+.rdrDayInRange {
+  background: transparent;
+}
+
+/* Completely remove today underline (blue / black / any color) */
+.rdrDayToday .rdrDayNumber span::after {
+  content: none !important;
+}
+
+
+// .rdrSelected, .rdrInRange, .rdrStartEdge, .rdrEndEdge{
+//     background-color: #e6e4eb !important;
+//     color: #000 !important;
+// }
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 27px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 19px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+      .overallformofuserpresence{
+         max-width: 700px;
+         margin: auto;
+             position: relative;
+    top: 30px;
+    padding: 12px;
+    border: 1px solid #d2d3d4;
+ box-shadow: 0px 1px 2px 0px #d2d3d4, -1px 9px 15px 1px #d2d3d4;
+
+    border-radius: 12px;
+    .searchwrapper{
+      .header{
+        display: flex;
+        justify-content: space-between;
+      }
+      .rightend{
+        display: flex;
+        gap: 8px;
+      }
+      .prevsearch{
+        margin: 30px 0;
+      }
+    }
+         b{
+          text-align: center;
+          width: 100%;
+          display: inline-block;
+          margin-bottom: 40px;
+         }
+         .formuserpresence{
+     width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+    .block{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      p{
+        font-weight: 600;
+      }
+      label{
+        min-width: 170px;
+      }
+    }
+}
+      }
+.areaChartWrapper {
+  width: 100%;
+  background: #fff;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+/* Optional: soften the reference line */
+.recharts-reference-line-line {
+  stroke-opacity: 0.6;
+}
+
+/* Smooth edges */
+.recharts-area path {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+button{
+  width: fit-content;
+    padding: 6px 6px;
+    background: #fff;
+    border: 1px solid #d2d3d4;
+    color: black;
+    border-radius: 6px;
+    min-width: 60px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
