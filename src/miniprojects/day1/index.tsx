@@ -3,7 +3,9 @@ import styles from "../scss/commonstyles.module.scss"
 
 function HabitCard({habitcards}:any) {
   
-
+ if (!habitcards || habitcards.length === 0) {
+        return <div>No habits yet.</div>
+    }
     return (<>
         <div className={styles.cardflex}>
             {
