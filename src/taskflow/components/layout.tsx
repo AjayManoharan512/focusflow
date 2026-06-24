@@ -12,7 +12,7 @@ function Layout({children}:any) {
   return (
     <div className={styles.wholepage}>
       <div className={`${styles.header} ${theme ? "" : styles.darkheader} `}>
-       <h1>My Projects</h1>
+       <h1>Focus flow</h1>
        <div style={{width:"26px", cursor:"pointer"}} onClick={()=>settheme(!theme)}>  <svg
       viewBox="0 0 48 48"
       xmlns="http://www.w3.org/2000/svg"

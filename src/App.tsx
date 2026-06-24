@@ -7,44 +7,9 @@ import Tasklist from './taskflow/components/tasklist'
 
 
 
-import Addanonobjecttoarray from './majoroperations'
-import Updateobject from './majoroperations'
 import Usereducerexample from './usereducerexample/usereducerexample'
-import Greetingcardgenerator from './Roadmap/stage1/greetingcardgenerator'
+
 import { ThemeContext } from './themecontext'
-// import Userlist from './Roadmap/stage1/userlist'
-// import Tablist from './Roadmap/stage1/userlist'
-// import Showhidepassword from './Roadmap/stage1/userlist'
-// import Quotegenerator from './Roadmap/stage1/userlist'
-
-
-import Loginneww from './customcomponents/login'
-import Autosaveinput from './Roadmap/stage1/userlist'
-
-import Timer from './Roadmap/stage1/userlist'
-import Timerneww from './Roadmap/stage1/userlist'
-import Showhidepassword from './Roadmap/stage1/userlist'
-import Tablist from './Roadmap/stage1/userlist'
-import Counter from './Roadmap/stage1/userlist'
-import Movielist from './Roadmap/stage1/userlist'
-import Trafficlights from './Roadmap/stage1/userlist'
-
-import Offlinestatus from './Roadmap/stage1/offline'
-import Statuswatcher from './Roadmap/stage1/statuswatcher'
-import Sessiontracker from './Roadmap/stage1/sessiotracker'
-import Useractivitymonitor from './Roadmap/stage1/useractivitymonitor'
-import Chatpresence from './Roadmap/stage1/chatpressence'
-import Usreducerexamples from './Roadmap/stage1/userefexamples'
-import UseRefExample from './Roadmap/stage1/userefexamples'
-import Trackprevvalue from './Roadmap/stage1/userefexamples'
-import Trackrender from './Roadmap/stage1/userefexamples'
-import Trackrerender from './Roadmap/stage1/userefexamples'
-import Autofocusinputnew from './Roadmap/stage1/userefexamples'
-import Userpresencemonitor from './userpresencemonitor'
-import Debouncerenderins from './debouncedsearchrenderinspector'
-
-import Usememoexample from './usememo'
-import Todolist from './projectnew/todolist'
 
 import HabitCard from './miniprojects/day1'
 import MoodCapturer from './miniprojects/day2'
@@ -55,7 +20,7 @@ import Quotegenerator from './miniprojects/day6'
 import Weatherappcard from './miniprojects/day6/index2'
 
 import Goalboard from './miniprojects/day7'
-import Goalform from './miniprojects/day7/goalform'
+
 import Tripboard from './miniprojects/day8/tripboard'
 import Randomadvice from './miniprojects/day9/randommoviesuggetion'
 
@@ -115,27 +80,8 @@ useEffect(() => {
 
 
 
-            <Route path='/todolist' element={<Layout><Todolist /></Layout>}></Route>
-            <Route path='/taskform' element={<Layout><Taskform /></Layout>}></Route>
-            <Route path='/tasklist' element={<Layout><Tasklist /></Layout>}></Route>
-            <Route path='/debouncemonitor' element={<Layout><Debouncerenderins /></Layout>}></Route>
-            <Route path='/userpresencemonitor' element={<Layout><Userpresencemonitor name="Ajay Manoharan" /></Layout>}></Route>
-            <Route path='/stage3' element={<Layout>
-
-            </Layout>}>
-            </Route>
-            <Route path='/stage1' element={<Layout>
-              <Greetingcardgenerator user={info}>
-              </Greetingcardgenerator>
-
-            </Layout>}>
-            </Route>
-            <Route path='/stage2' element={<Layout>
-
-              {/* <Formsmall /> */}
-
-            </Layout>}></Route>
-
+         
+  
             <Route path='/usereducerexample' element={<Usereducerexample></Usereducerexample>}></Route>
             <Route path='/majoroperations' element={
 
