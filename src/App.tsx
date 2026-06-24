@@ -100,7 +100,8 @@ useEffect(() => {
 
           <Routes>
              {/* // claude projects */}
-            <Route path='/habitcard' element={<Layout><HabitCard  ></HabitCard></Layout>}></Route>
+              
+            <Route path='/' element={<Layout><HabitCard  ></HabitCard></Layout>}></Route>
             <Route path='/moodcapturer' element={<Layout><MoodCapturer/></Layout>}></Route>
             <Route path='/tasklistnew' element={<Layout><Tasklistnew/></Layout>}></Route>
               <Route path='/focussession' element={<Layout><Focustimer/></Layout>}></Route>
