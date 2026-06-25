@@ -13,7 +13,7 @@
     min-width: none !important;
     max-width: none !important;
     margin: 0px !important;
-    transition: transform 180ms ease, border-color 180ms ease;
+    transition: border-color 120ms ease;
 
 
     .top {
@@ -106,6 +106,7 @@
     .filters {
         display: flex;
         gap: 12px;
+        padding:0 12px;
 
         .filter {
             background-color: #d2d3d461;
@@ -184,15 +185,13 @@
                 width: 50px;
                 display: grid;
                 place-items: center;
-                height: 50px;
+           
                 border-radius: 12px;
                 background-color: transparent;
                 border: 1px solid #d2d3d4;
                 text-transform: capitalize;
-                transition: transform 160ms ease, background-color 160ms ease, color 160ms ease, border-color 160ms ease;
 
                 &:hover {
-                    transform: translateY(-2px);
                     border-color: #7640c2;
                 }
 
@@ -343,6 +342,7 @@
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
+    padding:0 12px;
 
     .filter {
         background-color: #d2d3d461;
@@ -605,6 +605,10 @@
         .maingridblock {
             padding: 0;
         }
+
+        .filters {
+            padding-bottom: 16px !important;
+        }
     }
 
     .qtcard {
@@ -660,6 +664,7 @@
 @media (max-width: 420px) {
     .filters {
         gap: 8px;
+        padding: 0 0 12px !important;
     }
 
     .focuscard {

@@ -54,9 +54,9 @@
 }
 }
 .sidebar {
-    padding: 25px 20px;
+    padding: 25px 16px;
     display: flex;
-    gap: 12px;
+    
     flex-direction: column;
     width: 191px;
     flex: 0 0 191px;
@@ -118,7 +118,7 @@
         gap: 8px;
         overflow-x: auto;
         overflow-y: hidden;
-        padding: 10px 12px;
+        padding: 10px 0;
         background-color: #f2f2f3;
         border-bottom: 1px solid #d2d3d4;
         scroll-snap-type: x proximity;
@@ -133,6 +133,14 @@
 
             &:hover {
                 transform: none;
+            }
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
             }
         }
     }

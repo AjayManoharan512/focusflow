@@ -38,7 +38,7 @@ function Dashboard() {
                     <div className={styles.desc}>Done today</div>
                 </div>
             </div>
-            <div style={{ padding: "0 16px" }} className={styles.filters}>
+            <div  className={styles.filters}>
                 <div
                     className={`${styles.filter} ${activefilter.tab === "all" ? styles.filled : ""
                         }`}
