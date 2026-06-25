@@ -99,6 +99,7 @@
                 border-radius: 6px;
                 border: 1px solid #d2d3d4;
                 padding-left: 12px;
+                min-height: 32px;
             }
         }
     }
@@ -472,7 +473,7 @@
     margin: auto;
     input{
       width: -webkit-fill-available;
-    height: 24px;
+    height: 32px;
     border: 1px solid #d2d3d4;
     border-radius: 6px;
     padding-inline: 12px;
@@ -595,7 +596,7 @@
     .moodcard {
         .bottom {
             align-items: flex-start;
-            flex-direction: column;
+           
             gap: 10px;
         }
     }
@@ -614,7 +615,7 @@
     .qtcard {
         .header {
             align-items: flex-start;
-            flex-direction: column;
+        
             gap: 10px;
         }
     }
@@ -650,13 +651,11 @@
     .tripformcard {
         .header {
             align-items: flex-start;
-            flex-direction: column;
+          
             gap: 12px;
             border-radius: 10px 10px 0 0;
 
-            button {
-                width: 100%;
-            }
+          
         }
     }
 }
