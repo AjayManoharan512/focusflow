@@ -1,9 +1,8 @@
-import React from "react";
-import styles from "../scss/commonstyles.module.scss";
-import useApifetch from "../day9/useapifetch";
+import styles from "../shared/styles/commonstyles.module.scss";
+import useApiFetch from "../shared/hooks/useApiFetch";
 
 function Quotegenerator() {
-    const { loading, data, error, refetch } = useApifetch(
+    const { loading, data, error, refetch } = useApiFetch(
         "https://quotesapi.prayushadhikari.com.np/api/quotes?order=random&limit=1"
     )
 

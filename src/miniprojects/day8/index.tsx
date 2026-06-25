@@ -1,11 +1,9 @@
-import react, { useEffect, useState } from "react"
-import styles from "../scss/commonstyles.module.scss"
-import Tripform from "./tripform";
-import Trpcard from "./tripcard";
-import useLocalStorage from "../day9/uselocalstorage";
+import TripForm from "./components/TripForm";
+import TripCard from "./components/TripCard";
+import useLocalStorage from "../shared/hooks/useLocalStorage";
 
 function Tripboard() {
-  const [trips, settrips] = useLocalStorage("trips", [])
+  const [trips, settrips] = useLocalStorage<any[]>("trips", [])
     const handledelete = (handleid: any) => {
         settrips((prev) => prev.filter((el) => el.id !== handleid));
     }
@@ -106,18 +104,18 @@ function Tripboard() {
     // console.log(trips)
     return (
         <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-            <Tripform sendmessage={handletrip} />
+            <TripForm sendmessage={handletrip} />
             {
                 trips.map((trip: any,) => (
 
-                    <Trpcard
+                    <TripCard
                         key={trip.id}
                         trip={trip}
                         ondelete={handledelete}
                         onlistdel={handlelistdel}
                         onToggle={handleToggle}
                         onaddactivity={handleAddActivity}
-                    ></Trpcard>
+                    ></TripCard>
 
                 )
                 )

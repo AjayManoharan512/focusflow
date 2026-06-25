@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import styles from "../scss/commonstyles.module.scss";
+import { useEffect, useState } from "react";
+import styles from "../shared/styles/commonstyles.module.scss";
 
 function Focustimer() {
   const [timeleft, settimeleft] = useState(1500)
@@ -22,7 +22,6 @@ function Focustimer() {
 
     return () => clearInterval(timer);
   }, [isrunning, timeleft]);
-  console.log(sessiondots)
   // minutes
   const minutes = Math.floor(timeleft / 60);
 

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import styles from "../scss/commonstyles.module.scss"
+import { useState } from "react";
+import styles from "../shared/styles/commonstyles.module.scss"
 
 
     
@@ -14,7 +14,7 @@ import styles from "../scss/commonstyles.module.scss"
 function MoodCapturer() {
     const [logincount, setlogincount] = useState(0)
      const [activetab, setactivetab] = useState(null)
-       const handletab = ( index) => {
+       const handletab = (index: number) => {
         setactivetab(index)
         setlogincount(prev => prev + 1)
     }
@@ -32,7 +32,7 @@ function MoodCapturer() {
             <div className={styles.center}>
                 <div className={styles.btnflex}>
                     {
-                        moods.map((item, index) => <div key={index} className={`${styles.moodbtn} ${activetab === index ? styles.active : ""}`} onClick={(e) => handletab( index)} >{item.label}<br></br>{item.icon} </div>)
+                        moods.map((item, index) => <div key={index} className={`${styles.moodbtn} ${activetab === index ? styles.active : ""}`} onClick={() => handletab(index)} >{item.label}<br></br>{item.icon} </div>)
                     }
 
                 </div>

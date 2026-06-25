@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import styles from "../scss/commonstyles.module.scss";
+import { useState } from "react";
+import styles from "../../shared/styles/commonstyles.module.scss";
 
-function Goalcard({ goal, onDelete, onAddTask,onToggleTask }:any) {
+function GoalCard({ goal, onDelete, onAddTask,onToggleTask }:any) {
   const [newTask, setNewTask] = useState("");
 
   const addTask = () => {
@@ -64,4 +64,4 @@ function Goalcard({ goal, onDelete, onAddTask,onToggleTask }:any) {
   );
 }
 
-export default Goalcard;
+export default GoalCard;

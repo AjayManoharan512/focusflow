@@ -1,8 +1,7 @@
-import React from "react";
-import useApifetch from "./useapifetch";
+import useApiFetch from "../shared/hooks/useApiFetch";
 
 function Randomadvice() {
-    const { loading, data, error, refetch } = useApifetch("https://api.adviceslip.com/advice")
+    const { loading, data, error, refetch } = useApiFetch("https://api.adviceslip.com/advice")
 
 
     return (<>

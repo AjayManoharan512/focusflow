@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import styles from "../scss/commonstyles.module.scss";
+import { useState } from "react";
+import styles from "../../shared/styles/commonstyles.module.scss";
 
-function Goalform({ onAddGoal }) {
+function GoalForm({ onAddGoal }: any) {
   const [title, setTitle] = useState("");
   const [task, setTask] = useState("");
 
@@ -53,4 +53,4 @@ function Goalform({ onAddGoal }) {
   );
 }
 
-export default Goalform;
+export default GoalForm;

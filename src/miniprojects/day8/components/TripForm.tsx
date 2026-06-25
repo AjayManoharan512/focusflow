@@ -1,7 +1,7 @@
-import react, { useState } from "react"
-import styles from "../scss/commonstyles.module.scss"
+import { useState } from "react"
+import styles from "../../shared/styles/commonstyles.module.scss"
 
-function Tripform({sendmessage}) {
+function TripForm({sendmessage}: any) {
   const [trip,settrip]=useState({
       id:1,
       destination:"",
@@ -49,4 +49,4 @@ const addtripfunction = () => {
             </div>
         </div>
     </>)
-} export default Tripform;
+} export default TripForm;

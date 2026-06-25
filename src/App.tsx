@@ -1,12 +1,7 @@
 import { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Taskform from './taskflow/components/taskform'
+
 import Layout from './taskflow/components/layout'
-import Tasklist from './taskflow/components/tasklist'
-
-
-
-
 import Usereducerexample from './usereducerexample/usereducerexample'
 
 import { ThemeContext } from './themecontext'
@@ -21,23 +16,13 @@ import Weatherappcard from './miniprojects/day6/index2'
 
 import Goalboard from './miniprojects/day7'
 
-import Tripboard from './miniprojects/day8/tripboard'
-import Randomadvice from './miniprojects/day9/randommoviesuggetion'
-
-
-
-
-
+import Tripboard from './miniprojects/day8'
+import Randomadvice from './miniprojects/day9'
 
 
 function App() {
 
-  var info = {
-    name: "Ajay",
-    age: 27,
-    title: "Ui developer",
-    bio: "im ui developer working at a worktual innovations"
-  }
+ 
   const [status, setstatus] = useState(false);
 
   useEffect(() => {

@@ -1,5 +1,4 @@
-import React from "react"
-import styles from "../scss/commonstyles.module.scss"
+import styles from "../shared/styles/commonstyles.module.scss"
 
 function HabitCard({habitcards}:any) {
   
@@ -41,8 +40,6 @@ function HabitCard({habitcards}:any) {
                 )
             }
         </div>
-
-
 
     </>)
 } export default HabitCard

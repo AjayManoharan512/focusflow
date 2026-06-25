@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import styles from "../scss/commonstyles.module.scss";
+import { useState } from "react";
+import styles from "../shared/styles/commonstyles.module.scss";
 
 function Tasklistnew() {
    const [inputval, setinptval] = useState("");

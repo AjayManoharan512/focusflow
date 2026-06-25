@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import styles from "../scss/commonstyles.module.scss";
+import { useState } from "react";
+import styles from "../shared/styles/commonstyles.module.scss";
 import HabitCard from "../day1";
 const habitcards = [
     { name: "Walking", category: "health", streak: 20 },

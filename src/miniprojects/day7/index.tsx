@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import Goalform from "./goalform";
-import Goalcard from "./goalcard";
-import uselocalstorage from "../day9/uselocalstorage";
+import GoalForm from "./components/GoalForm";
+import GoalCard from "./components/GoalCard";
+import useLocalStorage from "../shared/hooks/useLocalStorage";
 
 function Goalboard() {
-const [goals, setGoals] = uselocalstorage("goals", [])
+const [goals, setGoals] = useLocalStorage<any[]>("goals", [])
 
   const addGoalHandler = (newGoal:any) => {
     setGoals((prev):any => [...prev, newGoal]);
@@ -60,10 +59,10 @@ const [goals, setGoals] = uselocalstorage("goals", [])
         gap: "12px",
       }}
     >
-      <Goalform onAddGoal={addGoalHandler} />
+      <GoalForm onAddGoal={addGoalHandler} />
 
       {goals.map((goal) => (
-        <Goalcard
+        <GoalCard
           key={goal.id}
           goal={goal}
           onDelete={handleDelete}

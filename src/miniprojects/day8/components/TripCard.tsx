@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import styles from "../scss/commonstyles.module.scss";
+import { useState } from "react";
+import styles from "../../shared/styles/commonstyles.module.scss";
 
-function Trpcard({ trip, ondelete, onlistdel, onToggle ,onaddactivity}: any) {
+function TripCard({ trip, ondelete, onlistdel, onToggle ,onaddactivity}: any) {
       const [newActivity, setNewActivity] = useState("");
   const handleAdd = () => {
     if (!newActivity.trim()) return;
@@ -87,4 +87,4 @@ function Trpcard({ trip, ondelete, onlistdel, onToggle ,onaddactivity}: any) {
     );
 }
 
-export default Trpcard;
+export default TripCard;
