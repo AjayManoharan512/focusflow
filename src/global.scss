@@ -5,9 +5,20 @@ body {
     padding: 0;
     box-sizing: border-box;
     overflow: hidden;
-    
     font-family: "Inter", sans-serif;
-   background-color: #f2f2f3;
+    background-color: #f2f2f3;
+    color: #171717;
+    -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 p,
@@ -118,7 +129,15 @@ label{
     border-radius: 12px;
     max-width: 230px;
     margin: auto;
-margin: 16px;
+    margin: 16px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.commoncard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.11);
 }
 
 .tabwrapper{
@@ -522,5 +541,59 @@ button{
     min-width: 60px;
     font-size: 14px;
     cursor: pointer;
+    transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+input,
+textarea,
+select {
+  max-width: 100%;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.14);
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
+
+  .commoncard {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border-radius: 10px;
+  }
+
+  button {
+    min-height: 36px;
+    padding: 8px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 

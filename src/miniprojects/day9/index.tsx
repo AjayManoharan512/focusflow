@@ -1,11 +1,12 @@
 import useApiFetch from "../shared/hooks/useApiFetch";
+import styles from "../shared/styles/commonstyles.module.scss";
 
 function Randomadvice() {
     const { loading, data, error, refetch } = useApiFetch("https://api.adviceslip.com/advice")
 
 
     return (<>
-        <div className="commoncard" style={{ minWidth: "400px", minHeight: "120px", margin: "auto", display: "flex", flexDirection: "column" }}>
+        <div className={`commoncard ${styles.advicecard}`}>
             {loading ? <div style={{ flex: "1" }}> <>
                 <style>
                     {`

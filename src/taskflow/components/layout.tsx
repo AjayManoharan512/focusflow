@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import styles from "../scss/layout.module.scss"
 import { ThemeContext } from '../../themecontext'
 import {NavLink } from 'react-router-dom'

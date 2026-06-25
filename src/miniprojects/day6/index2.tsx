@@ -16,7 +16,6 @@ function Weatherappcard() {
             try {
                 const response = await fetch("https://api.open-meteo.com/v1/forecast?latitude=13.08&longitude=80.27&current_weather=true")
                 const data = await response.json()
-                console.log(data)
                 settemp(data.current_weather.temperature)
                 setwindspeed(data.current_weather.windspeed)
                 setweathercode(data.current_weather.weathercode)

@@ -1,15 +1,27 @@
 .wholepage{
     min-height: 100dvh;
+    background-color: #f2f2f3;
 
     .header{
-        padding: 20px;
-       
+        min-height: 64px;
+        padding: 14px 20px;
         text-align: center;
-       
-             background-color: #fff;
-            color: #000;
+        background-color: #fff;
+        color: #000;
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        box-shadow: 0 1px 0 rgba(15, 23, 42, 0.08);
+        transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+
+        h1 {
+            font-size: 20px;
+            letter-spacing: 0;
+        }
+
         &.darkheader{
          background-color: #000;
         color: #fff;
@@ -18,25 +30,21 @@
     }
 .body{
     background-color: #f2f2f3;
-   
-        height: calc(100dvh - 64px);
+    height: calc(100dvh - 64px);
     width: 100%;
     display: flex;
+    min-width: 0;
+
     .inner{
-  
-    height: calc(100dvh - 177px);
-    padding: 20px 0;
-        margin: 0px 20px;
-         border-radius: 8px;
-         background-color: #fff;
-         overflow-y: auto;
-         height: calc(100dvh - 150px);
-    padding: 20px 0;
-    margin: 20px 20px;
+    height: calc(100dvh - 104px);
+    padding: 20px;
+    margin: 20px 20px 20px 0;
     border-radius: 8px;
     background-color: #fff;
     overflow-y: auto;
     width: 100%;
+    min-width: 0;
+    transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
          &.darkinner{
             background-color: #000;
             color: #fff;
@@ -46,21 +54,86 @@
 }
 }
 .sidebar {
-   
     padding: 25px 20px;
     display: flex;
     gap: 12px;
     flex-direction: column;
     width: 191px;
+    flex: 0 0 191px;
+    overflow-y: auto;
 
     a {
         text-decoration: none;
         color: #000;
         font-size: 16px;
         font-weight: 500;
+        border-radius: 8px;
+        padding: 8px 10px;
+        transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+
+        &:hover {
+            background-color: #e9eefc;
+            transform: translateX(2px);
+        }
 
         &:global(.active) {
             color:blue;
+            background-color: #e8edff;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .wholepage {
+        min-height: 100dvh;
+
+        .header {
+            min-height: 58px;
+            padding: 12px 16px;
+
+            h1 {
+                font-size: 18px;
+            }
+        }
+
+        .body {
+            height: calc(100dvh - 58px);
+            flex-direction: column;
+
+            .inner {
+                height: auto;
+                min-height: 0;
+                flex: 1;
+                margin: 0;
+                padding: 14px;
+                border-radius: 0;
+            }
+        }
+    }
+
+    .sidebar {
+        width: 100%;
+        flex: 0 0 auto;
+        flex-direction: row;
+        gap: 8px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 10px 12px;
+        background-color: #f2f2f3;
+        border-bottom: 1px solid #d2d3d4;
+        scroll-snap-type: x proximity;
+
+        a {
+            flex: 0 0 auto;
+            font-size: 14px;
+            padding: 8px 12px;
+            background: #fff;
+            border: 1px solid #d2d3d4;
+            scroll-snap-align: start;
+
+            &:hover {
+                transform: none;
+            }
         }
     }
 }
