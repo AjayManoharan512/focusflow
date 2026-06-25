@@ -10,7 +10,7 @@ function Layout({children}:any) {
 
 
   return (
-    <div className={styles.wholepage}>
+    <div className={`${styles.wholepage} ${theme ? "" : styles.darkwholepage}`}>
       <div className={`${styles.header} ${theme ? "" : styles.darkheader} `}>
        <h1>Focus flow</h1>
        <div style={{width:"26px", cursor:"pointer"}} onClick={()=>settheme(!theme)}>  <svg
@@ -27,8 +27,8 @@ function Layout({children}:any) {
       />
     </svg></div>
       </div>
-      <div className={styles.body}>
-        <nav className={`${styles.sidebar} sidebar`}>
+      <div className={`${styles.body} ${theme ? "" : styles.darkbody}`}>
+        <nav className={`${styles.sidebar} ${theme ? "" : styles.darksidebar} sidebar`}>
    
     <NavLink to="/moodcapturer" >Mood</NavLink>
     <NavLink to="/tasklistnew">Tasks</NavLink>
