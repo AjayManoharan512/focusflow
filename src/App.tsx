@@ -6,7 +6,6 @@ import Usereducerexample from './usereducerexample/usereducerexample'
 
 import { ThemeContext } from './themecontext'
 
-import HabitCard from './miniprojects/day1'
 import MoodCapturer from './miniprojects/day2'
 import Tasklistnew from './miniprojects/day3'
 import Focustimer from './miniprojects/day4'
@@ -51,7 +50,7 @@ useEffect(() => {
           <Routes>
              {/* // claude projects */}
               
-            <Route path='/' element={<Layout><HabitCard  ></HabitCard></Layout>}></Route>
+            <Route path='/' element={<Layout><Dashboard/></Layout>}></Route>
             <Route path='/moodcapturer' element={<Layout><MoodCapturer/></Layout>}></Route>
             <Route path='/tasklistnew' element={<Layout><Tasklistnew/></Layout>}></Route>
               <Route path='/focussession' element={<Layout><Focustimer/></Layout>}></Route>
