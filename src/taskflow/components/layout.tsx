@@ -64,7 +64,7 @@ function Layout({children}:any) {
       <div className={`${styles.body} ${theme ? "" : styles.darkbody}`}>
         <nav className={`${styles.sidebar} ${theme ? "" : styles.darksidebar} sidebar`}>
    
-    <NavLink to="/moodcapturer" >Mood</NavLink>
+    <NavLink to="/moodcapturer" >Mood Observer</NavLink>
     <NavLink to="/tasklistnew">Tasks</NavLink>
     <NavLink to="/focussession" >Timer</NavLink>
     <NavLink to="/dashboard" >Dashboard</NavLink>
