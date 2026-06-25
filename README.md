@@ -1,73 +1,116 @@
-# React + TypeScript + Vite
+# FocusFlow
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+FocusFlow is a personal productivity app built with React, TypeScript, Vite, SCSS, and React Router. It brings together mood logging, task management, focus sessions, dashboard stats, quote and weather widgets, goal tracking, trip planning, random advice, local persistence, and dark mode in one multi-page app.
 
-Currently, two official plugins are available:
+Live demo: https://focusflow-jfj4.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+| Feature | Description |
+| --- | --- |
+| Dashboard | Overview cards and productivity stats with reusable card UI. |
+| Mood Check-in | Log mood changes with state, events, and conditional UI. |
+| Task Manager | Add, complete, filter, and delete tasks with controlled inputs. |
+| Focus Timer | Focus-session timer with session tracking and browser title updates. |
+| Quote Widget | Fetch motivational quotes from a live API with refresh support. |
+| Weather Widget | Display live weather data using Open-Meteo without an API key. |
+| Goal Tracker | Add goals, manage nested tasks, toggle completion, and track progress. |
+| Trip Planner | Plan destinations, add activities, toggle completed items, and delete entries. |
+| Random Advice | Fetch random advice through the shared API-fetch hook. |
+| Dark Mode | Persisted theme toggle powered by React Context and localStorage. |
+| Mobile Navigation | Responsive sidebar navigation with horizontal scrolling on mobile. |
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React 19 with TypeScript
+- React Router 7 for client-side routing and active navigation states
+- Vite for development and production builds
+- SCSS and CSS Modules for styling
+- React Context for theme state
+- localStorage for persistent app data
+- Vercel for deployment
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## React Concepts Practiced
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+This project was built as a week-by-week React learning project:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. JSX and components: reusable UI built from component props and array mapping.
+2. State and events: `useState`, event handlers, conditional rendering, and previous-state updates.
+3. Forms, lists, and keys: controlled inputs, immutable array updates, filters, and list rendering.
+4. Effects and side effects: `useEffect`, timers, cleanup functions, and document title updates.
+5. Layout and architecture: shared layout, dashboard summaries, reusable styles, and route structure.
+6. API fetching: loading, data, error, refresh, and `try/catch/finally` patterns.
+7. Lifting state up: parent-owned state passed to child components through props and callbacks.
+8. Routing: `BrowserRouter`, `Routes`, `Route`, `NavLink`, and CSS Modules with `:global(.active)`.
+9. Custom hooks: reusable `useLocalStorage` and `useApiFetch` hooks.
+10. Responsive and themed UI: mobile navigation, dark mode, hover states, and shared component styling.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Project Structure
+
+```text
+src/
++-- miniprojects/
+|   +-- day1/             # Habit card practice
+|   +-- day2/             # Mood check-in
+|   +-- day3/             # Task manager
+|   +-- day4/             # Focus timer
+|   +-- day5/             # Dashboard
+|   +-- day6/             # Quote and weather widgets
+|   +-- day7/             # Goal board
+|   +-- day8/             # Trip planner
+|   +-- day9/             # Random advice
+|   +-- shared/
+|       +-- hooks/        # useLocalStorage and useApiFetch
+|       +-- styles/       # Shared SCSS module styles
++-- taskflow/
+|   +-- components/       # Layout and navigation
+|   +-- scss/             # Layout SCSS module
++-- themecontext.ts       # Dark mode context
++-- App.tsx               # App routes
++-- global.scss           # Global styles
++-- main.tsx              # React entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Routes
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The default route (`/`) opens the Dashboard.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- `/dashboard` - Dashboard
+- `/moodcapturer` - Mood check-in
+- `/tasklistnew` - Task manager
+- `/focussession` - Focus timer
+- `/quotegenerator` - Quote widget
+- `/weatherapp` - Weather widget
+- `/goalform` - Goal tracker
+- `/tripform` - Trip planner
+- `/randomadvice` - Random advice
+
+## Running Locally
+
+```bash
+git clone https://github.com/AjayManoharan512/focusflow.git
+cd focusflow
+npm install
+npm run dev
 ```
+
+Open `http://localhost:5173` in your browser.
+
+## Available Scripts
+
+```bash
+npm run dev
+npm run build
+npm run lint
+npm run preview
+```
+
+## Future Improvements
+
+- Replace remaining `any` types with proper TypeScript interfaces.
+- Add unit tests with React Testing Library.
+- Add a backend for accounts and cross-device sync.
+- Improve accessibility labels and keyboard navigation.
+- Add more polished empty states and error states.
+
+Built by Ajay Manoharan while learning React from scratch.
