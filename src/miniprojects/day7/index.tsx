@@ -51,6 +51,21 @@ const [goals, setGoals] = useLocalStorage<any[]>("goals", [])
   )
 }
 
+  const handleEditTask = (goalId:any, taskId:any, newText:any) => {
+    setGoals((prev:any) =>
+      prev.map((goal:any) =>
+        goal.id === goalId
+          ? {
+              ...goal,
+              tasks: goal.tasks.map((task:any) =>
+                task.id === taskId ? { ...task, text: newText } : task
+              ),
+            }
+          : goal
+      )
+    );
+  };
+
   return (
     <div
       style={{
@@ -67,7 +82,8 @@ const [goals, setGoals] = useLocalStorage<any[]>("goals", [])
           goal={goal}
           onDelete={handleDelete}
           onAddTask={handleAddTask}
-          onToggleTask ={handleToggleTask}
+          onToggleTask={handleToggleTask}
+          onEditTask={handleEditTask}
         />
       ))}
     </div>
