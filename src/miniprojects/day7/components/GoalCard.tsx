@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "../../shared/styles/commonstyles.module.scss";
 
-function GoalCard({ goal, onDelete, onAddTask, onToggleTask, onEditTask }: any) {
+function GoalCard({ goal, onDelete, onAddTask, onToggleTask, onEditTask, onDeleteTask }: any) {
   const [newTask, setNewTask] = useState("");
   const [editingTaskId, setEditingTaskId] = useState<number | null>(null);
   const [editingText, setEditingText] = useState("");
@@ -55,6 +55,7 @@ function GoalCard({ goal, onDelete, onAddTask, onToggleTask, onEditTask }: any) 
                 <input
                   type="text"
                   value={editingText}
+                  style={{ outline: "none", boxShadow: "none" }}
                   onChange={(e) => setEditingText(e.target.value)}
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
@@ -81,7 +82,10 @@ function GoalCard({ goal, onDelete, onAddTask, onToggleTask, onEditTask }: any) 
                   />
                   {task.text}
                 </label>
-                <button onClick={() => startEditing(task)}>Edit</button>
+                <div style={{ display: "flex", gap: "8px" }}>
+                  <button onClick={() => startEditing(task)}>Edit</button>
+                  <button onClick={() => onDeleteTask(goal.id, task.id)}>Delete</button>
+                </div>
               </>
             )}
           </div>
@@ -92,6 +96,7 @@ function GoalCard({ goal, onDelete, onAddTask, onToggleTask, onEditTask }: any) 
         <input
           type="text"
           value={newTask}
+          style={{ outline: "none", boxShadow: "none" }}
           placeholder="Add another task"
           onChange={(e) => setNewTask(e.target.value)}
           onKeyDown={(e) => {

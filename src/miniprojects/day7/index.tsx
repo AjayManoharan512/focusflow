@@ -40,7 +40,7 @@ const [goals, setGoals] = useLocalStorage<any[]>("goals", [])
       goal.id === goalId
         ? {
             ...goal,
-            tasks: goal.tasks.map(task =>
+            tasks: goal.tasks.map((task: any) =>
               task.id === taskId
                 ? { ...task, done: !task.done }
                 : task
@@ -66,6 +66,19 @@ const [goals, setGoals] = useLocalStorage<any[]>("goals", [])
     );
   };
 
+  const handleDeleteTask = (goalId:any, taskId:any) => {
+    setGoals((prev:any) =>
+      prev.map((goal:any) =>
+        goal.id === goalId
+          ? {
+              ...goal,
+              tasks: goal.tasks.filter((task:any) => task.id !== taskId),
+            }
+          : goal
+      )
+    );
+  };
+
   return (
     <div
       style={{
@@ -84,6 +97,7 @@ const [goals, setGoals] = useLocalStorage<any[]>("goals", [])
           onAddTask={handleAddTask}
           onToggleTask={handleToggleTask}
           onEditTask={handleEditTask}
+          onDeleteTask={handleDeleteTask}
         />
       ))}
     </div>
