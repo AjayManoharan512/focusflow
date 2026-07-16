@@ -17,6 +17,7 @@ import Goalboard from './miniprojects/day7'
 
 import Tripboard from './miniprojects/day8'
 import Randomadvice from './miniprojects/day9'
+import Forms from './furtherdeeper/forms'
 
 
 function App() {
@@ -65,7 +66,7 @@ useEffect(() => {
 
 
          
-  
+             <Route path='/forms' element={<Forms/>}></Route>
             <Route path='/usereducerexample' element={<Usereducerexample></Usereducerexample>}></Route>
             <Route path='/majoroperations' element={
 

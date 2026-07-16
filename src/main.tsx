@@ -1,8 +1,6 @@
 import { createRoot } from 'react-dom/client'
 import "./global.scss"
-
-
-
+import "./main.scss"
 
 import App from './App.tsx'
 
