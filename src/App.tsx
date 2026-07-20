@@ -61,6 +61,7 @@ import Goalboard from './miniprojects/day7'
 import Tripboard from './miniprojects/day8'
 import Randomadvice from './miniprojects/day9'
 import Forms from './furtherdeeper/forms'
+import Newsapi from './miniprojects/day6/newsapi';
 
 
 function App() {
@@ -142,7 +143,8 @@ function App() {
                 <Route path='/weatherapp' element={<Layout><Weatherappcard/></Layout>}></Route>
                 <Route path='/goalform' element={<Layout><Goalboard/></Layout>}></Route>
                  <Route path='/tripform' element={<Layout><Tripboard/></Layout>}></Route>
-                   <Route path='/randomadvice' element={<Layout><Randomadvice/></Layout>}></Route>
+                  <Route path='/randomadvice' element={<Layout><Randomadvice/></Layout>}></Route>
+                  <Route path='/newsapi' element={<Layout><Newsapi/></Layout>}></Route>
 
 
 

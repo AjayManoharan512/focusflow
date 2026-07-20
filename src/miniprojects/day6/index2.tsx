@@ -10,8 +10,9 @@ function Weatherappcard() {
     const [weatherCode, setWeatherCode] = useState(0);
     const [feelsLike, setFeelsLike] = useState("");
     const [description, setDescription] = useState("");
-    const [destination, setDestination] = useState("Chennai");
     const [searchInput, setSearchInput] = useState("Chennai");
+    const [debouncedSearch, setDebouncedSearch] = useState("Chennai");
+    const [lastSearched, setLastSearched] = useState("");
     const [cityLabel, setCityLabel] = useState("Chennai, IN");
 
     const fetchWeather = async (place: string) => {
@@ -56,7 +57,7 @@ function Weatherappcard() {
             setFeelsLike(current.apparent_temperature);
             setDescription(getWeatherDescription(current.weathercode));
             setCityLabel(`${result.name}, ${result.country_code || result.country || ""}`.trim());
-            setDestination(place);
+            setLastSearched(place);
             setLoaded(true);
         } catch (err) {
             setError(err instanceof Error ? err.message : "Something went wrong.");
@@ -66,14 +67,35 @@ function Weatherappcard() {
     };
 
     useEffect(() => {
-        fetchWeather(destination);
-    }, []);
+        const timer = window.setTimeout(() => {
+            const nextValue = searchInput.trim();
+            if (nextValue) {
+                setDebouncedSearch(nextValue);
+            }
+        }, 500);
+
+        return () => window.clearTimeout(timer);
+    }, [searchInput]);
+
+    useEffect(() => {
+        if (!debouncedSearch || debouncedSearch === lastSearched) {
+            return;
+        }
+
+        fetchWeather(debouncedSearch);
+    }, [debouncedSearch, lastSearched]);
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
-        const nextDestination = searchInput.trim() || destination;
+        const nextDestination = searchInput.trim() || lastSearched;
+
+        if (!nextDestination || nextDestination === lastSearched) {
+            setSearchInput(nextDestination);
+            return;
+        }
+
         setSearchInput(nextDestination);
-        fetchWeather(nextDestination);
+        setDebouncedSearch(nextDestination);
     };
 
     const getWeatherIcon = (code: number) => {
@@ -95,7 +117,6 @@ function Weatherappcard() {
         if (code <= 82) return "Thunderstorm";
         return "Foggy";
     };
-
     return (
         <div className={`commoncard ${styles.weathercard}`}>
             <form onSubmit={handleSubmit} style={{ display: "flex", gap: "8px", marginBottom: "12px" }}>
