@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useForm } from "./useForm";
+
 const EyeIcon = () => {
     return (
         <svg
@@ -38,101 +39,23 @@ const EyeOffIcon = () => {
     );
 };
 function Forms() {
-    const [userdetails, setuserdetails] = useState({
-        name: "",
-        age: "",
-        email: "",
-        username: "",
-        password: "",
-        confirmpassword: ""
-    });
-    const [stepper, setstepper] = useState("personal");
-    const [err, seterr] = useState<Record<string, string>>({});
+    const {
+        userdetails,
+        stepper,
+        err,
+        showPassword,
+        showConfirmPassword,
+        steps,
+        activeIndex,
+        handlechange,
+        handleSubmit,
+        handleAccountNext,
+        handleFinalSubmit,
+        setstepper,
+        setShowPassword,
+        setShowConfirmPassword,
+    } = useForm();
 
-    const handlechange = (e: any) => {
-        const { name, value } = e.target;
-        setuserdetails((v: any) => ({ ...v, [name]: value }));
-        
-    };
-
-    const validate = (userdetails: any, step: string) => {
-        const errors: any = {};
-
-        if (step === "personal") {
-            if (!userdetails.name) {
-                errors.name = "Name required";
-            }
-            else if (userdetails.name.length < 4) {
-                errors.name = "Min 4 characters";
-            } else if (/\s/.test(userdetails.username)) {
-                errors.name = "No spaces allowed";
-            }
-            if (!userdetails.age) {
-                errors.age = "Please enter age";
-            } else if (Number(userdetails.age) < 18) {
-                errors.age = "Must be 18 or older";
-            }
-            if (!userdetails.email) {
-                errors.email = "Please enter email";
-            } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(userdetails.email)) {
-                errors.email = "Enter a valid email address";
-            }
-        }
-
-        if (step === "account") {
-            if (!userdetails.username) {
-                errors.username = "Username required";
-            }
-            if (!userdetails.password) {
-                errors.password = "Password required";
-            } else if (userdetails.password.length < 6) {
-                errors.password = "Password must be at least 6 characters";
-            }
-            if (!userdetails.confirmpassword) {
-                errors.confirmpassword = "Please confirm password";
-            } else if (userdetails.password !== userdetails.confirmpassword) {
-                errors.confirmpassword = "Passwords do not match";
-            }
-        }
-
-        seterr(errors);
-        return errors;
-    };
-
-    const steps = [
-        { key: "personal", label: "Personal" },
-        { key: "account", label: "Account" },
-        { key: "view", label: "Review" },
-        { key: "done", label: "Done" },
-    ];
-
-    const handlesubmit = () => {
-        const errs = validate(userdetails, "personal");
-        console.log(errs)
-        if (Object.keys(errs).length === 0) {
-            console.log("✓ Personal info valid", userdetails);
-            setstepper("account");
-        }else{
-            console.log("w")
-        }
-    };
-
-    const handleAccountNext = () => {
-        const errs = validate(userdetails, "account");
-        if (Object.keys(errs).length === 0) {
-            console.log("✓ Account info valid", userdetails);
-            setstepper("view");
-        }
-    };
-
-    const handleFinalSubmit = () => {
-        setstepper("done");
-    };
-
-    const activeIndex = steps.findIndex((step) => step.key === stepper);
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    console.log(userdetails)
     return (
         <>
             <div className="form-wrapper">
@@ -201,7 +124,7 @@ function Forms() {
                                         </div>
                                     </div>
                                     <div className="form-actions form-actions--end">
-                                        <button type="button" onClick={handlesubmit}>Next</button>
+                                        <button type="button" onClick={handleSubmit}>Next</button>
                                     </div>
                                 </div>
                             );
@@ -312,10 +235,7 @@ function Forms() {
                                         <div style={{ width: "50%" }}>Password</div>
                                         <div style={{ width: "50%" }}>••••••••</div>
                                     </div>
-                                    <div style={{ display: "flex", marginBottom: "12px" }}>
-                                        <div style={{ width: "50%" }}>Confirm Password</div>
-                                        <div style={{ width: "50%" }}>••••••••</div>
-                                    </div>
+                                   
                                     <div className="form-actions">
                                         <button type="button" onClick={() => setstepper("account")}>Back</button>
                                         <button type="button" onClick={handleFinalSubmit}>Submit</button>
