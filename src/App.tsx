@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import Layout from './taskflow/components/layout'
+import Layout from './common/components/Layout'
 import Usereducerexample from './usereducerexample/usereducerexample'
 
 function WaterReminderToast({ visible, onClose }: { visible: boolean; onClose: () => void }) {
@@ -62,6 +62,7 @@ import Tripboard from './miniprojects/day8'
 import Randomadvice from './miniprojects/day9'
 import Forms from './furtherdeeper/forms'
 import Newsapi from './miniprojects/day6/newsapi';
+import Simpledebounce from './miniprojects/debounce/simpledebounce';
 
 
 function App() {
@@ -151,6 +152,7 @@ function App() {
 
          
              <Route path='/forms' element={<Forms/>}></Route>
+              <Route path='/debounce' element={<Simpledebounce/>}></Route>
             <Route path='/usereducerexample' element={<Usereducerexample></Usereducerexample>}></Route>
             <Route path='/majoroperations' element={
 

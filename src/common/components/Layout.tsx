@@ -1,12 +1,12 @@
-import { useContext } from 'react'
-import styles from "../scss/layout.module.scss"
+import { useContext, type ReactNode } from 'react'
+import styles from "../styles/layout.module.scss"
 import { ThemeContext } from '../../themecontext'
 import {NavLink } from 'react-router-dom'
 
-function Layout({children}:any) {
+function Layout({children}: { children: ReactNode }) {
   const { theme, settheme } = useContext(ThemeContext);
-  var white ="#fff";
-  var black ="#000"
+  const white ="#fff";
+  const black ="#000"
 
 
   return (
