@@ -107,7 +107,7 @@
     .filters {
         display: flex;
         gap: 12px;
-        padding:0 12px;
+        padding: 0 12px;
 
         .filter {
             background-color: #d2d3d461;
@@ -186,7 +186,7 @@
                 width: 72px;
                 display: grid;
                 place-items: center;
-           
+
                 border-radius: 12px;
                 background-color: transparent;
                 border: 1px solid #d2d3d4;
@@ -343,7 +343,7 @@
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
-    padding:0 12px;
+    padding: 0 12px;
 
     .filter {
         background-color: #d2d3d461;
@@ -366,7 +366,7 @@
 .qtcard {
     width: min(100%, 400px);
     max-width: 400px;
-    margin:auto !important;
+    margin: auto !important;
 
     .header {
         display: flex;
@@ -380,150 +380,163 @@
     }
 
     .body {
-            margin: 16px 0 0;
-            max-height: 600px;
-    overflow: auto;
+        margin: 16px 0 0;
+        max-height: 600px;
+        overflow: auto;
+
         .author {
             font-size: 16px;
             font-weight: 700;
-             display:inline-block;
-             margin:12px 0;
+            display: inline-block;
+            margin: 12px 0;
         }
     }
 
 }
-.skeletonwrapper{
+
+.skeletonwrapper {
     width: 100%;
 }
 
-.skeletonline{
+.skeletonline {
     width: 100%;
     height: 14px;
     border-radius: 6px;
     margin-bottom: 10px;
     animation: shimmer 1.5s infinite;
-    background: linear-gradient(
-        90deg,
-        #e5e5e5 25%,
-        #f5f5f5 50%,
-        #e5e5e5 75%
-    );
+    background: linear-gradient(90deg,
+            #e5e5e5 25%,
+            #f5f5f5 50%,
+            #e5e5e5 75%);
     background-size: 200% 100%;
 }
 
-.skeletonsmall{
+.skeletonsmall {
     width: 120px;
     height: 12px;
     border-radius: 6px;
     margin-top: 18px;
     animation: shimmer 1.5s infinite;
-    background: linear-gradient(
-        90deg,
-        #e5e5e5 25%,
-        #f5f5f5 50%,
-        #e5e5e5 75%
-    );
+    background: linear-gradient(90deg,
+            #e5e5e5 25%,
+            #f5f5f5 50%,
+            #e5e5e5 75%);
     background-size: 200% 100%;
 }
 
-@keyframes shimmer{
-    0%{
+@keyframes shimmer {
+    0% {
         background-position: 200% 0;
     }
 
-    100%{
+    100% {
         background-position: -200% 0;
     }
 }
-.weathercard{
-    width:min(100%, 400px);
-    max-width:400px;
-    padding:20px;
-    color:#fff!important;
-        background: #0000ffcf;
-        margin:auto;
-    .top{
+
+.weathercard {
+    width: min(100%, 400px);
+    max-width: 400px;
+    padding: 20px;
+    color: #fff !important;
+    background: #0000ffcf;
+    margin: auto;
+
+    .top {
         display: flex;
-    justify-content: space-between;
-    align-items: center;
+        justify-content: space-between;
+        align-items: center;
     }
-    .center{
+
+    .center {
+        display: flex;
+        padding: 14px 0;
+        gap: 12px;
+
+        .right {
             display: flex;
-    padding: 14px 0;
-    gap: 12px;
-    .right{
-        display:flex;
-        flex-direction:column;
+            flex-direction: column;
+        }
+
+        .bold {
+            font-size: 20px;
+            font-weight: 700;
+        }
     }
-    .bold{
-        font-size:20px;
-        font-weight:700;
-    }
-    }
-    .bottom{
-        display:grid;
-        gap:12px;
-        grid-template-columns:repeat(2,1fr)
+
+    .bottom {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(2, 1fr)
     }
 }
-.goalformcard{
-     max-width: 453px;
+
+.goalformcard {
+    max-width: 453px;
     width: min(100%, 455px);
     padding: 20px;
     margin: auto;
-    input{
-      width: -webkit-fill-available;
-    height: 32px;
-    border: 1px solid #d2d3d4;
-    border-radius: 6px;
-    padding-inline: 12px;
-    }
-    input[type="checkbox"] {
-   border: 2px solid blue;
-    width: auto;
-    padding: 0px;
-    height: auto;
-    margin: 0;
-}
-    button{
-            white-space: nowrap;
-    min-width: max-content !important;
-    }
-     .title{
-        font-size:16px;
-        font-weight:700;
-        padding-bottom:20px;
-    }
-    .addgoalblock{
-        padding:20px 0 0 0 ;
-            padding: 20px 0;
-    display: flex;
-    gap: 20px;
-    padding-bottom:0px;
-    min-width: 0;
-    }
-    .body{
-        padding-top: 16px;
-    
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-        max-height: 110px;
-    overflow: auto;
-        .items{
-            display: flex;
-    justify-content: space-between;
-            .checkboxblock{
-            display:flex;
-            gap:6px;
-            min-width: 0;
-            }
-            .rights{
 
+    input {
+        width: -webkit-fill-available;
+        height: 32px;
+        border: 1px solid #d2d3d4;
+        border-radius: 6px;
+        padding-inline: 12px;
+    }
+
+    input[type="checkbox"] {
+        border: 2px solid blue;
+        width: auto;
+        padding: 0px;
+        height: auto;
+        margin: 0;
+    }
+
+    button {
+        white-space: nowrap;
+        min-width: max-content !important;
+    }
+
+    .title {
+        font-size: 16px;
+        font-weight: 700;
+        padding-bottom: 20px;
+    }
+
+    .addgoalblock {
+        padding: 20px 0 0 0;
+        padding: 20px 0;
+        display: flex;
+        gap: 20px;
+        padding-bottom: 0px;
+        min-width: 0;
+    }
+
+    .body {
+        padding-top: 16px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        max-height: 110px;
+        overflow: auto;
+
+        .items {
+            display: flex;
+            justify-content: space-between;
+
+            .checkboxblock {
+                display: flex;
+                gap: 6px;
+                min-width: 0;
             }
+
+            .rights {}
         }
     }
 }
+
 .advicecard {
     width: min(100%, 400px);
     min-height: 120px;
@@ -533,23 +546,28 @@
     gap: 14px;
 }
 
-.tripformcard{
-    padding:0px !important;
-        background: linear-gradient(180deg, #fff 50%, #f2f2f2);
-    .header{
-            padding: 20px !important;
-    background-color: violet;
-    border-radius: 12px 12px 0 0;
-    button{
-        background-color: #000 !important;
-        color: #fff !important;
+.tripformcard {
+    padding: 0px !important;
+    background: linear-gradient(180deg, #fff 50%, #f2f2f2);
+
+    .header {
+        padding: 20px !important;
+        background-color: violet;
+        border-radius: 12px 12px 0 0;
+
+        button {
+            background-color: #000 !important;
+            color: #fff !important;
             box-shadow: rgba(149, 157, 165, 0.2) 9px 21px 36px;
+        }
     }
-    }
-    .body{
+
+    .body {
         overflow: hidden scroll !important;
     }
-    .body,.footer{
+
+    .body,
+    .footer {
         padding: 16px;
     }
 }
@@ -596,34 +614,33 @@
     .moodcard {
         .bottom {
             align-items: flex-start;
-           
+
             gap: 10px;
         }
     }
 
     .dashboardbody {
+
         .headerarea,
         .maingridblock {
             padding: 0;
         }
 
         .filters {
-            padding:0 0  16px 0 !important;
+            padding: 0 0 16px 0 !important;
         }
     }
 
     .qtcard {
         .header {
             align-items: flex-start;
-        
+
             gap: 10px;
         }
     }
 
     .weathercard {
-        .bottom {
-            
-        }
+        .bottom {}
     }
 
     .goalformcard {
@@ -651,11 +668,11 @@
     .tripformcard {
         .header {
             align-items: flex-start;
-          
+
             gap: 12px;
             border-radius: 10px 10px 0 0;
 
-          
+
         }
     }
 }
@@ -667,9 +684,121 @@
     }
 
     .focuscard {
+
         .btnrow,
-        .circularstsrow {
-          
+        .circularstsrow {}
+    }
+}
+
+.overallnotescontainer {
+    max-width: 800px;
+    margin: auto;
+    border: 1px solid #d2d3d4;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+.body{
+    padding-top: 12px;
+  display: grid;
+gap: 12px;
+grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        .rights{
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
     }
+
+    .previewcard {
+        border: 1px solid #d2d3d4;
+        padding: 12px;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+            display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+        max-height: 100px;
+    font-size: 14px;
+  .text{
+     display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  button{
+    visibility: hidden;
+   
+  }
+  }
+
+
+        &:hover {
+            box-shadow: 0 0 0 1px #7640c2;
+            cursor: pointer;
+            transform: scale(1.02);
+            .text{
+                button{
+                    visibility: visible;
+                }
+            }
+        }
+    }
+}
+.editormodalwrapper{
+  position: fixed;
+  top: 0;
+  right: 0;
+  inset: 0;
+  background: rgb(0 0 0 / 50%);
+  opacity: 0;
+  z-index: 9;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  display: grid;
+  place-items: center;
+  &.open{
+    opacity: 1;
+    visibility:visible;
+  }
+  .modal{
+    background: #fff;
+width: 500px;
+     border: 1px solid #d2d3d4;
+        padding: 12px;
+        border-radius: 12px;
+        .header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+        .body{
+            textarea{
+                border: none;
+                resize: none;
+                width: 100%;
+                min-height: 120px;
+                max-height: 120px;
+                &:focus{
+                    box-shadow:none !important ;
+                }
+            }
+        }
+        .footer{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+  }
 }

@@ -63,6 +63,7 @@ import Randomadvice from './miniprojects/day9'
 import Forms from './furtherdeeper/forms'
 import Newsapi from './miniprojects/day6/newsapi';
 import Simpledebounce from './miniprojects/debounce/simpledebounce';
+import Notesapp from './miniprojects/notesapp';
 
 
 function App() {
@@ -146,6 +147,7 @@ function App() {
                  <Route path='/tripform' element={<Layout><Tripboard/></Layout>}></Route>
                   <Route path='/randomadvice' element={<Layout><Randomadvice/></Layout>}></Route>
                   <Route path='/newsapi' element={<Layout><Newsapi/></Layout>}></Route>
+                  <Route path='/notes' element={<Layout><Notesapp/></Layout>}></Route>
 
 
 

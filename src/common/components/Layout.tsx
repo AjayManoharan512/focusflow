@@ -72,6 +72,7 @@ function Layout({children}: { children: ReactNode }) {
     <NavLink to="/weatherapp" >Weather</NavLink>
     <NavLink to="/goalform" >Goals</NavLink>
     <NavLink to="/tripform" >Trips</NavLink>
+    <NavLink to="/notes" >Notes</NavLink>
   </nav>
         <div className={`${styles.inner} ${theme ? "" : styles.darkinner}`}>
                {children}   

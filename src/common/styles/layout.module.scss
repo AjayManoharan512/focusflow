@@ -133,13 +133,13 @@
         transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
 
         &:hover {
-            background-color: #e9eefc;
+      background-color: #f6f2fa;
             transform: translateX(2px);
         }
 
         &:global(.active) {
-            color:blue;
-            background-color: #e8edff;
+            color:#7640c2;
+            background-color: #f6f2fa;
         }
     }
 
