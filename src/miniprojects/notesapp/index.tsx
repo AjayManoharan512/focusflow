@@ -1,36 +1,47 @@
-import React, { useState, type ChangeEvent, type KeyboardEvent } from "react";
+import React, { useEffect, useState, type ChangeEvent, type KeyboardEvent } from "react";
+import { useDispatch, useSelector } from 'react-redux'
 import styles from "../shared/styles/commonstyles.module.scss"
 import Simpledebounce from "../debounce/simpledebounce"
-import useLocalStorage from "../shared/hooks/useLocalStorage"
-
-interface Note {
-  text: string;
-  timestamp: string;
-}
+import { addNote, deleteNote, loadNotes, type Note } from '../../features/notes/notesSlice'
+import type { RootState } from '../../app/store'
 
 export default function Notesapp(): React.ReactNode {
     const [modalopen, setmodalopen] = useState<boolean>(false)
     const [inptchange, setinptchange] = useState<string>("")
-    const [notes, setnotes] = useLocalStorage<Note[]>("notes", [])
     const [searchquery, setsearchquery] = useState<string>("")
+    const dispatch = useDispatch()
+    const notes = useSelector((state: RootState) => state.notes.items)
 
     const today = new Date()
+
+    useEffect(() => {
+        const saved = localStorage.getItem('notes')
+        if (saved) {
+            dispatch(loadNotes(JSON.parse(saved)))
+        }
+    }, [dispatch])
+
+    useEffect(() => {
+        localStorage.setItem('notes', JSON.stringify(notes))
+    }, [notes])
+
     const handleinptchange = () => {
-        setnotes([...notes, { text: inptchange, timestamp: new Date().toISOString() }])
+        if (!inptchange.trim()) return
+        dispatch(addNote({ text: inptchange.trim(), timestamp: new Date().toISOString() }))
         setinptchange("")
         setmodalopen(false)
-
     }
+
     const handleSearch = (query: string) => {
         setsearchquery(query)
     }
+
     const filteredNotes = notes.filter((note: Note) =>
         note.text.toLowerCase().includes(searchquery.toLowerCase())
     )
 
     const handledelelist = (index: number) => {
-        const dellist = notes.filter((_: Note, i: number) => i != index)
-        setnotes(dellist)
+        dispatch(deleteNote(index))
     }
 
     return (<>

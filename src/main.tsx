@@ -1,11 +1,13 @@
 import { createRoot } from 'react-dom/client'
-import "./global.scss"
-import "./main.scss"
+import { Provider } from 'react-redux'
+import './global.scss'
+import './main.scss'
 
 import App from './App.tsx'
+import { store } from './app/store'
 
 createRoot(document.getElementById('root')!).render(
-  
+  <Provider store={store}>
     <App />
- 
+  </Provider>,
 )
