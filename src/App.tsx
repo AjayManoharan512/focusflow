@@ -64,6 +64,7 @@ import Forms from './furtherdeeper/forms'
 import Newsapi from './miniprojects/day6/newsapi';
 import Simpledebounce from './miniprojects/debounce/simpledebounce';
 import Notesapp from './miniprojects/notesapp';
+import Index from './typscript/index';
 
 
 function App() {
@@ -154,7 +155,8 @@ function App() {
 
          
              <Route path='/forms' element={<Forms/>}></Route>
-              <Route path='/debounce' element={<Simpledebounce/>}></Route>
+              <Route path='/debounce' element={<Simpledebounce onSearch={(value) => console.log('Search:', value)}/>}></Route>
+            <Route path='/typescript' element={<Layout><Index/></Layout>}></Route>
             <Route path='/usereducerexample' element={<Usereducerexample></Usereducerexample>}></Route>
             <Route path='/majoroperations' element={
 

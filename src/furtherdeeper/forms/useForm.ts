@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type ChangeEvent } from "react";
 
 export const steps = [
     { key: "personal", label: "Personal" },
@@ -7,8 +7,28 @@ export const steps = [
     { key: "done", label: "Done" },
 ] as const;
 
+type StepKey = typeof steps[number]["key"];
+
+interface UserDetails {
+    name: string;
+    age: string;
+    email: string;
+    username: string;
+    password: string;
+    confirmpassword: string;
+}
+
+interface FormErrors {
+    name?: string;
+    age?: string;
+    email?: string;
+    username?: string;
+    password?: string;
+    confirmpassword?: string;
+}
+
 export function useForm() {
-    const [userdetails, setuserdetails] = useState({
+    const [userdetails, setuserdetails] = useState<UserDetails>({
         name: "",
         age: "",
         email: "",
@@ -16,20 +36,20 @@ export function useForm() {
         password: "",
         confirmpassword: "",
     });
-    const [stepper, setstepper] = useState("personal");
-    const [err, seterr] = useState({});
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [stepper, setstepper] = useState<StepKey>("personal");
+    const [err, seterr] = useState<FormErrors>({});
+    const [showPassword, setShowPassword] = useState<boolean>(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
 
-    const handlechange = (e) => {
+    const handlechange = (e: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
 
         setuserdetails((prev) => ({ ...prev, [name]: value }));
         seterr((prev) => ({ ...prev, [name]: "" }));
     };
 
-    const validate = (values, step) => {
-        const errors = {};
+    const validate = (values: UserDetails, step: StepKey): FormErrors => {
+        const errors: FormErrors = {};
 
         if (step === "personal") {
             if (!values.name) {

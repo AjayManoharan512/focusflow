@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, type ChangeEvent, type KeyboardEvent } from "react";
 import styles from "../shared/styles/commonstyles.module.scss"
 import Simpledebounce from "../debounce/simpledebounce"
 import useLocalStorage from "../shared/hooks/useLocalStorage"
 
-export default function Notesapp() {
-    const [modalopen, setmodalopen] = useState(false)
-    const [inptchange, setinptchange] = useState("")
-    const [notes, setnotes] = useLocalStorage<{ text: string, timestamp: string }[]>("notes", [])
-    const [searchquery, setsearchquery] = useState("")
+interface Note {
+  text: string;
+  timestamp: string;
+}
+
+export default function Notesapp(): React.ReactNode {
+    const [modalopen, setmodalopen] = useState<boolean>(false)
+    const [inptchange, setinptchange] = useState<string>("")
+    const [notes, setnotes] = useLocalStorage<Note[]>("notes", [])
+    const [searchquery, setsearchquery] = useState<string>("")
 
     const today = new Date()
-    const handleinptchange = (e: any) => {
+    const handleinptchange = () => {
         setnotes([...notes, { text: inptchange, timestamp: new Date().toISOString() }])
         setinptchange("")
         setmodalopen(false)
@@ -19,12 +24,12 @@ export default function Notesapp() {
     const handleSearch = (query: string) => {
         setsearchquery(query)
     }
-    const filteredNotes = notes.filter((note: any) =>
+    const filteredNotes = notes.filter((note: Note) =>
         note.text.toLowerCase().includes(searchquery.toLowerCase())
     )
 
-    const handledelelist = (index: any) => {
-        const dellist = notes.filter((_: any, i) => i != index)
+    const handledelelist = (index: number) => {
+        const dellist = notes.filter((_: Note, i: number) => i != index)
         setnotes(dellist)
     }
 
@@ -42,7 +47,7 @@ export default function Notesapp() {
             <div className={styles.body}>
                 {filteredNotes.length > 0 ? <>
                     {
-                        filteredNotes.map((el: any, index: number) => (
+                        filteredNotes.map((el: Note, index: number) => (
                             <div key={index} className={styles.previewcard}>
                                 <div className={styles.text}>{el.text} <div className={styles.delbtn} onClick={() => handledelelist(index)}><svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -87,9 +92,9 @@ export default function Notesapp() {
 
                         </div>
                         <div className={styles.body}>
-                            <textarea value={inptchange} placeholder="Enter notes here" onChange={(e: any) => setinptchange(e.target.value)} onKeyDown={(e) => {
+                            <textarea value={inptchange} placeholder="Enter notes here" onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setinptchange(e.target.value)} onKeyDown={(e: KeyboardEvent<HTMLTextAreaElement>) => {
                                 if (e.key === "Enter") {
-                                    handleinptchange(e);
+                                    handleinptchange();
                                 }
                             }}></textarea>
                         </div>
