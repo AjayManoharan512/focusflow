@@ -4,7 +4,7 @@
     transition: background-color 180ms ease, color 180ms ease;
 
     &.darkwholepage {
-        background-color: #0f172a;
+        background-color: #000;
         color: #f8fafc;
     }
 
@@ -43,7 +43,7 @@
     transition: background-color 180ms ease;
 
     &.darkbody {
-        background-color: #0f172a;
+        background-color: #000;
     }
 
     .inner{
@@ -57,7 +57,7 @@
     min-width: 0;
     transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
          &.darkinner{
-            background-color: #111827;
+            background-color: #000;
             color: #f8fafc;
             box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.16);
 
@@ -88,7 +88,7 @@
             :global(input),
             :global(textarea),
             :global(select) {
-                background-color: #111827;
+                background-color: #000;
                 border-color: #475569;
                 color: #f8fafc;
             }
@@ -144,7 +144,7 @@
     }
 
     &.darksidebar {
-        background-color: #0f172a;
+        background-color: #000;
 
         a {
             color: #dbeafe;
@@ -155,8 +155,8 @@
             }
 
             &:global(.active) {
-                color: #93c5fd;
-                background-color: #1e3a8a;
+                color:#7640c2;
+            background-color: #f6f2fa;
             }
         }
     }
@@ -243,7 +243,7 @@
         }
 
         &.darksidebar {
-            background-color: #0f172a;
+            background-color: #000;
             border-bottom-color: #334155;
             scrollbar-color: #64748b transparent;
 

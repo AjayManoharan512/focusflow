@@ -36,9 +36,11 @@ export default function Notesapp(): React.ReactNode {
         setsearchquery(query)
     }
 
-    const filteredNotes = notes.filter((note: Note) =>
-        note.text.toLowerCase().includes(searchquery.toLowerCase())
-    )
+    const filteredNotes = [...notes]
+        .filter((note: Note) =>
+            note.text.toLowerCase().includes(searchquery.toLowerCase())
+        )
+        .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
 
     const handledelelist = (index: number) => {
         dispatch(deleteNote(index))
