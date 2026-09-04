@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import Layout from './common/components/Layout'
+import Layout from './components/Layout/Layout'
 import Usereducerexample from './usereducerexample/usereducerexample'
 
 function WaterReminderToast({ visible, onClose }: { visible: boolean; onClose: () => void }) {
@@ -47,7 +47,7 @@ function WaterReminderToast({ visible, onClose }: { visible: boolean; onClose: (
   )
 }
 
-import { ThemeContext } from './themecontext'
+import { ThemeContext } from './contexts/ThemeContext'
 
 import MoodCapturer from './miniprojects/day2'
 import Tasklistnew from './miniprojects/day3'
@@ -65,6 +65,7 @@ import Newsapi from './miniprojects/day6/newsapi';
 import Simpledebounce from './miniprojects/debounce/simpledebounce';
 import Notesapp from './miniprojects/notesapp';
 import Index from './typscript/index';
+import CustomerExample from '../redux toolkit explained/CustomerExample';
 
 
 function App() {
@@ -149,7 +150,7 @@ function App() {
                   <Route path='/randomadvice' element={<Layout><Randomadvice/></Layout>}></Route>
                   <Route path='/newsapi' element={<Layout><Newsapi/></Layout>}></Route>
                   <Route path='/notes' element={<Layout><Notesapp/></Layout>}></Route>
-
+                  <Route path='/customerexample' element={<Layout><CustomerExample/></Layout>}></Route>
 
 
 
