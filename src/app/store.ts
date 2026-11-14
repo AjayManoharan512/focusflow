@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import notesReducer from '../features/notes/notesSlice'
-import customersReducer from '../../redux toolkit explained/customerSlice'
+import customersReducer from '../learning/redux-toolkit/customerSlice'
 
 export const store = configureStore({
   reducer: {

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./smallinitialcard.module.scss";
+import styles from "./SmallCard.module.scss";
 
 function Smallcardtitle({ config }) {
   const { title, status, items,icon } = config;

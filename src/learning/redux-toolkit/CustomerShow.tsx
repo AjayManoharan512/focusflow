@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import type { AppDispatch, RootState } from '../src/app/store'
+import type { AppDispatch, RootState } from '../../app/store'
 import { deleteCustomer } from './customerSlice'
 
 function CustomerShow() {

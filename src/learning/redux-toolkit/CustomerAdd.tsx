@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-import type { AppDispatch } from '../src/app/store'
+import type { AppDispatch } from '../../app/store'
 import { addCustomer, type Customer } from './customerSlice'
 
 function CustomerAdd() {

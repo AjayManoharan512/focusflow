@@ -30,6 +30,7 @@ Dark mode is available on every screen that uses the shared layout. A water remi
 - React Router 7 for client-side routes
 - SCSS and CSS Modules for component styles
 - React Context for the theme
+- Redux Toolkit for notes and the customer example
 - `localStorage` for data that should survive a refresh
 
 ## Repository layout
@@ -37,18 +38,29 @@ Dark mode is available on every screen that uses the shared layout. A water remi
 ```text
 src/
   App.tsx                         # Routes, theme provider, water reminder
-  app/store.ts                    # Redux store (notes and customers)
-  contexts/ThemeContext.tsx       # Dark-mode context
-  components/
-    Layout/                       # Shared app shell
-    TaskFlow/                     # Task list, form, item, and filter
-    WaterReminder/                # Hydration toast
-    SmallCard.tsx                 # Compact status card
+  app/
+    store.ts                      # Redux store (notes and customers)
+  assets/                         # Images imported by components
+  components/                     # Shared, reusable UI
     DateRangePicker/              # Date-range input
+    Layout/                       # Shared app shell styles
+    SmallCard/                    # Compact status card
+    WaterReminder/                # Hydration toast
+  contexts/
+    ThemeContext.tsx              # Dark-mode context
+  features/                       # Feature-specific code
+    tasks/components/             # Task form, item, and filter bar
+  learning/                       # Practice code, not part of the app flow
+    redux-toolkit/                # Customer-list example (/customerexample)
+  styles/                         # Shared stylesheets
 public/                           # Icons and empty-state images
 ```
 
-`redux toolkit explained/` is a separate customer-list example wired to the same store. It is practice code, not part of the daily productivity flow.
+Conventions:
+
+- Each component gets its own PascalCase folder, with its `.tsx` and `.module.scss` together.
+- Code used by one feature goes under `features/<name>/`. Code used in more than one place goes under `components/`.
+- Learning and experiment code goes under `learning/`, so it stays separate from the app.
 
 ## Run it locally
 
@@ -65,7 +77,17 @@ npm run preview  # serve the production bundle
 npm run lint     # ESLint
 ```
 
-The page entry in `index.html` is `src/main.tsx`. That file, plus `vite.config.ts` and the TypeScript config, need to be present before `npm run dev` can start. Several route components imported by `src/App.tsx` (the day-by-day screens under `src/miniprojects`) are also absent from this checkout, so the router will not compile until those modules are restored or the unused routes are removed.
+### Known gaps in this checkout
+
+The app does not compile yet. These files are imported but not present:
+
+- `src/main.tsx` (the entry point in `index.html`), `vite.config.ts`, and the TypeScript config
+- `src/components/Layout/Layout.tsx`, the shared shell component (only its stylesheet is here)
+- The route screens imported by `src/App.tsx`: `miniprojects/day2`–`day9`, `miniprojects/notesapp`, `miniprojects/debounce`, `furtherdeeper/forms`, `typscript/`, and `usereducerexample/`
+- `src/features/notes/notesSlice.ts`, used by the store
+- `customcomponents/tablelikecom`, used by `TaskForm.tsx`
+
+Most of these are in commit `bfc8507`. Restore them into the layout above, or remove the routes that use them.
 
 ## Data and privacy
 
