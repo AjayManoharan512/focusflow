@@ -1,0 +1,98 @@
+.card {
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  padding: 13px;
+  
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.12);
+  font-family: "Inter", sans-serif;
+  border-radius: 16px;
+border: 1px solid var(--Colors-Essentials-Stoke-Stoke---Border---Line, #D2D3D4);
+background: #FFF;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+ 
+}
+
+.icon {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.tag {
+  padding: 4px 12px;
+border-radius: 24px;
+  font-size: 12px;
+  font-weight: 600;
+  width: fit-content;
+  
+&.green {
+
+border: 0.618px solid #136809;
+background: linear-gradient(180deg, #FFF 25%, #F2F2F2 100%);
+color: #0A3405;
+}
+&.blue{
+    
+border: 0.618px solid #575CFF;
+background: linear-gradient(180deg, #FFF 25%, #F2F2F2 100%);
+color: #2C2E80;
+}
+
+&.pink {
+
+border: 0.618px solid #FF8BFF;
+background: linear-gradient(180deg, #FFF 25%, #F2F2F2 100%);
+color: #804680;
+}
+
+}
+
+
+.list {
+  margin-top: 12px;
+  padding-left: 16px;
+  margin-top: 16px;
+    padding-left: 16px;
+    width: calc(100% - 32px);
+    position: relative;
+    left: 37px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+  li {
+    margin-bottom: 6px;
+    font-size: 14px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.itemLabel {
+  color: #555;
+  font-weight: 500;
+}
+
+.itemValue {
+  color: #333;
+  font-weight: 500;
+}
