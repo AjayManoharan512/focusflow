@@ -1,13 +1,23 @@
+import { useContext } from 'react'
+
+import { ThemeContext } from '../src/contexts/ThemeContext'
 import CustomerAdd from './CustomerAdd'
 import CustomerShow from './CustomerShow'
+import styles from './customerExample.module.scss'
 
 function CustomerExample() {
+  const { theme } = useContext(ThemeContext)
+
   return (
-    <div style={{ maxWidth: '720px', margin: '40px auto', padding: '24px', border: '1px solid #e5e7eb', borderRadius: '16px', background: '#fff' }}>
-      <h2 style={{ marginBottom: '20px' }}>Redux Toolkit Customer Example</h2>
+    <main className={`${styles.page} ${theme ? '' : styles.dark}`} aria-labelledby='customer-page-title'>
+      <header className={styles.header}>
+        <p className={styles.eyebrow}>Customer management</p>
+        <h2 id='customer-page-title'>Redux Toolkit Customer Example</h2>
+        <p className={styles.description}>Add, review, and manage customer records.</p>
+      </header>
       <CustomerAdd />
       <CustomerShow />
-    </div>
+    </main>
   )
 }
 

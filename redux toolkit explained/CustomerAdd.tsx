@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 
 import type { AppDispatch } from '../src/app/store'
 import { addCustomer, type Customer } from './customerSlice'
+import styles from './customerExample.module.scss'
 
 function CustomerAdd() {
   const dispatch = useDispatch<AppDispatch>()
@@ -31,51 +32,42 @@ function CustomerAdd() {
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: 'grid', gap: '12px', marginBottom: '24px' }}>
-      <div>
-        <label htmlFor='customer-name' style={{ display: 'block', marginBottom: '8px', fontWeight: 600 }}>
-          Customer Name
-        </label>
-        <input
-          id='customer-name'
-          type='text'
-          value={name}
-          placeholder='Enter customer name'
-          onChange={(event) => setName(event.target.value)}
-          style={{ width: '100%', padding: '10px 12px', borderRadius: '8px', border: '1px solid #d1d5db' }}
-        />
-      </div>
+    <section className={styles.formSection} aria-labelledby='add-customer-title'>
+      <h3 id='add-customer-title' className={styles.sectionTitle}>Add a customer</h3>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.field}>
+          <label htmlFor='customer-name'>Customer Name</label>
+          <input
+            className={styles.input}
+            id='customer-name'
+            type='text'
+            value={name}
+            placeholder='Enter customer name'
+            autoComplete='name'
+            required
+            onChange={(event) => setName(event.target.value)}
+          />
+        </div>
 
-      <div>
-        <label htmlFor='customer-email' style={{ display: 'block', marginBottom: '8px', fontWeight: 600 }}>
-          Email
-        </label>
-        <input
-          id='customer-email'
-          type='email'
-          value={email}
-          placeholder='Enter customer email'
-          onChange={(event) => setEmail(event.target.value)}
-          style={{ width: '100%', padding: '10px 12px', borderRadius: '8px', border: '1px solid #d1d5db' }}
-        />
-      </div>
+        <div className={styles.field}>
+          <label htmlFor='customer-email'>Email</label>
+          <input
+            className={styles.input}
+            id='customer-email'
+            type='email'
+            value={email}
+            placeholder='Enter customer email'
+            autoComplete='email'
+            required
+            onChange={(event) => setEmail(event.target.value)}
+          />
+        </div>
 
-      <button
-        type='submit'
-        style={{
-          width: 'fit-content',
-          padding: '10px 16px',
-          border: 'none',
-          borderRadius: '8px',
-          background: '#2563eb',
-          color: '#fff',
-          fontWeight: 600,
-          cursor: 'pointer',
-        }}
-      >
-        Add Customer
-      </button>
-    </form>
+        <button type='submit' className={styles.addButton}>
+          Add customer
+        </button>
+      </form>
+    </section>
   )
 }
 
